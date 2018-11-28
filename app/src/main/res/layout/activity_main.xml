@@ -24,5 +24,17 @@
         android:textColor="@android:color/white"
         android:textAllCaps="false"
         android:textSize="16sp" />/>
+    <Button
+        android:id="@+id/Lost_Pet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="I lost a pet"
+        android:paddingLeft="45dp"
+        android:paddingRight="45dp"
+        android:layout_marginTop="50dp"
+        android:background="#80000000"
+        android:textSize="30dp"
+
+        />
 
 </RelativeLayout>

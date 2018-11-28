@@ -7,7 +7,6 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_gravity="top"
         android:layout_marginStart="0dp"
@@ -35,13 +34,13 @@
         android:id="@+id/editText1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_below="@id/LocationDisplay"
         android:layout_marginLeft="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="0dp"
         android:ems="10"
-        android:hint="name"
+        android:hint="Enter The Breed"
+        android:textColorHint="@android:color/holo_red_dark"
         android:inputType="textPersonName"
         android:selectAllOnFocus="true" />
 
@@ -52,9 +51,10 @@
         android:layout_alignLeft="@+id/editText1"
         android:layout_alignStart="@+id/editText1"
         android:layout_below="@+id/editText1"
-        android:layout_marginTop="19dp"
+        android:textColorHint="@android:color/holo_red_dark"
+        android:layout_marginTop="5dp"
         android:ems="10"
-        android:hint="password_0_9"
+        android:hint="Dog Respond to"
         android:inputType="numberPassword" />
 
     <EditText
@@ -64,9 +64,10 @@
         android:layout_alignLeft="@+id/editText2"
         android:layout_alignStart="@+id/editText2"
         android:layout_below="@+id/editText2"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="5dp"
+        android:textColorHint="@android:color/holo_red_dark"
         android:ems="10"
-        android:hint="e_mail"
+        android:hint="Describ distinctive feature"
         android:inputType="textEmailAddress" />
 
     <EditText
@@ -76,9 +77,10 @@
         android:layout_alignLeft="@+id/editText3"
         android:layout_alignStart="@+id/editText3"
         android:layout_below="@+id/editText3"
-        android:layout_marginTop="18dp"
+        android:textColorHint="@android:color/holo_red_dark"
+        android:layout_marginTop="5dp"
         android:ems="10"
-        android:hint="date"
+        android:hint="Temperment Type"
         android:inputType="date" />
 
     <EditText
@@ -88,9 +90,10 @@
         android:layout_alignLeft="@+id/editText4"
         android:layout_alignStart="@+id/editText4"
         android:layout_below="@+id/editText4"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="5dp"
+        android:textColorHint="@android:color/holo_red_dark"
         android:ems="10"
-        android:hint="contact_number"
+        android:hint="Signs of Helath Issue"
         android:inputType="phone" />
 
     <Button
