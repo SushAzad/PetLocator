@@ -1,18 +1,35 @@
 package edu.illinois.cs465.petlocator;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class LostPetLocationActivity extends FragmentActivity implements OnMapReadyCallback {
+public class LostPetLocationActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener,
+        GoogleMap.OnMyLocationClickListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnMarkerDragListener{
 
     private GoogleMap mMap;
+    private View view;
+    private static LatLng fromPosition = null;
+    private static LatLng toPosition = null;
+    private static LatLng finalPos = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +41,16 @@ public class LostPetLocationActivity extends FragmentActivity implements OnMapRe
         mapFragment.getMapAsync(this);
     }
 
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.activity_lost_pet_location, container, false);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        if (mapFragment != null) {
+            mapFragment.getMapAsync(this);
+        }
+        return view;
+    }
 
     /**
      * Manipulates the map once available.
@@ -38,126 +65,72 @@ public class LostPetLocationActivity extends FragmentActivity implements OnMapRe
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         // Add a marker in uiuc and move the camera
-        LatLng siebel = new LatLng(40.1138069,-88.2270939);
+        LatLng siebel = new LatLng(40.1138069, -88.2270939);
         mMap.addMarker(new MarkerOptions().position(siebel).title("Lost Pet Marker").draggable(true));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(siebel,10));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(siebel, 10));
         mMap.animateCamera(CameraUpdateFactory.zoomIn());
         // Zoom out to zoom level 10, animating with a duration of 2 seconds.
         mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+        // to handle the case where the user grants the permission. See the documentation
+        // for ActivityCompat#requestPermissions for more details.
+        return;
+    }
+        mMap.setMyLocationEnabled(true);
+        mMap.setOnMyLocationButtonClickListener(this);
+        mMap.setOnMyLocationClickListener(this);
+        mMap.setOnMarkerClickListener(this);
+        mMap.setOnMarkerDragListener(this);
 
+
+    }
+    @Override
+    public void onMyLocationClick(@NonNull  Location location) {
+        Toast.makeText(this, "Current location:\n" + location, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public boolean onMyLocationButtonClick() {
+        Toast.makeText(this, "Finding your location", Toast.LENGTH_SHORT).show();
+        // Return false so that we don't consume the event and the default behavior still occurs
+        // (the camera animates to the user's current position).
+        return false;
+    }
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        Log.i("GoogleMapActivity", "onMarkerClick");
+        Toast.makeText(getApplicationContext(),
+                "Marker Clicked: " + marker.getTitle(), Toast.LENGTH_LONG)
+                .show();
+        return false;
+    }
+
+    @Override
+    public void onMarkerDrag(Marker marker) {
+        // do nothing during drag
+    }
+
+    @Override
+    public void onMarkerDragEnd(Marker marker) {
+        toPosition = marker.getPosition();
+        Toast.makeText(
+                getApplicationContext(),
+                "Marker " + marker.getTitle() + " dragged from " + fromPosition
+                        + " to " + toPosition, Toast.LENGTH_LONG).show();
+        finalPos = toPosition;
+
+    }
+
+    @Override
+    public void onMarkerDragStart(Marker marker) {
+        fromPosition = marker.getPosition();
+        Log.d(getClass().getSimpleName(), "Drag start at: " + fromPosition);
     }
 
 
 }
-/*public class LostPetLocationActivity extends FragmentActivity
-        implements OnMapReadyCallback,
-        GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,
-        LocationListener {
-
-    private GoogleMap map;
-    private LocationRequest mLocationRequest;
-    private GoogleApiClient mGoogleApiClient;
-    private Location mLastLocation;
-    private Marker marker;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        if (mGoogleApiClient == null || !mGoogleApiClient.isConnected()){
-
-            buildGoogleApiClient();
-            mGoogleApiClient.connect();
-
-        }
-
-        if (map == null) {
-            MapFragment mapFragment = (MapFragment) getFragmentManager()
-                    .findFragmentById(R.id.map);
-
-            mapFragment.getMapAsync(this);
-        }
-    }
-
-    @Override
-    public void onMapReady(GoogleMap retMap) {
-
-        map = retMap;
-
-        setUpMap();
-
-    }
-
-    public void setUpMap(){
-
-        map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-        map.setMyLocationEnabled(true);
-    }
-
-    @Override
-    protected void onPause(){
-        super.onPause();
-        if (mGoogleApiClient != null) {
-            LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
-        }
-    }
-
-    protected synchronized void buildGoogleApiClient() {
-        Toast.makeText(this, "buildGoogleApiClient", Toast.LENGTH_SHORT).show();
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(LocationServices.API)
-                .build();
-    }
-
-    @Override
-    public void onConnected(Bundle bundle) {
-        Toast.makeText(this,"onConnected", Toast.LENGTH_SHORT).show();
-
-        mLocationRequest = new LocationRequest();
-        mLocationRequest.setInterval(1000);
-        mLocationRequest.setFastestInterval(1000);
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
-
-        //mLocationRequest.setSmallestDisplacement(0.1F);
-
-        LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-
-    }
-
-    @Override
-    public void onConnectionFailed(ConnectionResult connectionResult) {
-
-    }
-
-    @Override
-    public void onLocationChanged(Location location) {
-        mLastLocation = location;
-
-        //remove previous current location Marker
-        if (marker != null){
-            marker.remove();
-        }
-
-        double dLatitude = mLastLocation.getLatitude();
-        double dLongitude = mLastLocation.getLongitude();
-        marker = map.addMarker(new MarkerOptions().position(new LatLng(dLatitude, dLongitude))
-                .title("My Location").icon(BitmapDescriptorFactory
-                        .defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(dLatitude, dLongitude), 8));
-
-    }
-
-}*/
