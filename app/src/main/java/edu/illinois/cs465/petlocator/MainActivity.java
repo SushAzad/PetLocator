@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import static android.view.View.*;
+
 public class MainActivity extends Activity {
     private Button button;
 
@@ -15,12 +17,12 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         button = (Button) findViewById(R.id.button);
-        button.setOnContextClickListener(new View.OnClickListener(){
+        button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 openActivity2();
             }
-        };
+        });
     }
 
     public void openActivity2(){
