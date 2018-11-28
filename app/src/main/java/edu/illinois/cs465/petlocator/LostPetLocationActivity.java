@@ -1,6 +1,7 @@
 package edu.illinois.cs465.petlocator;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.support.annotation.NonNull;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -23,13 +25,15 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class LostPetLocationActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener,
-        GoogleMap.OnMyLocationClickListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnMarkerDragListener{
+        GoogleMap.OnMyLocationClickListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnMarkerDragListener, View.OnClickListener {
 
     private GoogleMap mMap;
     private View view;
     private static LatLng fromPosition = null;
     private static LatLng toPosition = null;
     private static LatLng finalPos = null;
+    private static LatLng defaultPos = null;
+    private Button pickLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +70,7 @@ public class LostPetLocationActivity extends FragmentActivity implements OnMapRe
         mMap = googleMap;
         // Add a marker in uiuc and move the camera
         LatLng siebel = new LatLng(40.1138069, -88.2270939);
+        defaultPos = siebel;
         mMap.addMarker(new MarkerOptions().position(siebel).title("Lost Pet Marker").draggable(true));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(siebel, 10));
         mMap.animateCamera(CameraUpdateFactory.zoomIn());
@@ -86,6 +91,9 @@ public class LostPetLocationActivity extends FragmentActivity implements OnMapRe
         mMap.setOnMyLocationClickListener(this);
         mMap.setOnMarkerClickListener(this);
         mMap.setOnMarkerDragListener(this);
+
+        pickLocation = (Button) findViewById(R.id.PickLocation);
+        pickLocation.setOnClickListener(this);
 
 
     }
@@ -133,4 +141,20 @@ public class LostPetLocationActivity extends FragmentActivity implements OnMapRe
     }
 
 
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.PickLocation) {
+            Intent intent = new Intent(LostPetLocationActivity.this, pet_details.class);
+            if(finalPos==null)
+            {
+                intent.putExtra("LostPetLatitude", (float)defaultPos.latitude);
+                intent.putExtra("LostPetLongitude", (float)defaultPos.longitude);
+            }
+            else{
+                intent.putExtra("LostPetLatitude", (float)finalPos.latitude);
+                intent.putExtra("LostPetLongitude", (float)finalPos.longitude);
+            }
+            startActivity(intent);
+        }
+    }
 }

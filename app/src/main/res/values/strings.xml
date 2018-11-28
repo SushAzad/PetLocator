@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">PetLocator</string>
     <string name="title_activity_lost_pet_location">Map</string>
+    <string name="Location">Locash</string>
 </resources>
