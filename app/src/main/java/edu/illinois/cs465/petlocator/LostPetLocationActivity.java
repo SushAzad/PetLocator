@@ -44,7 +44,7 @@ public class LostPetLocationActivity extends FragmentActivity implements OnMapRe
         mMap.animateCamera(CameraUpdateFactory.zoomIn());
         // Zoom out to zoom level 10, animating with a duration of 2 seconds.
         mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
-        
+
     }
 
 
