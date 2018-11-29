@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
@@ -7,7 +8,6 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_gravity="top"
         android:layout_marginStart="0dp"
@@ -31,79 +31,142 @@
             android:text= "@string/Location"/>
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/LinLayout1"
+        android:layout_below="@+id/LocationDisplay"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/LocationDisplay"
-        android:layout_marginLeft="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="name"
-        android:inputType="textPersonName"
-        android:selectAllOnFocus="true" />
+        android:orientation="horizontal"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:textStyle="normal|bold"
+            android:text="Breed" />
+        <Spinner
+            android:id="@+id/breedDropDown"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:ems="10">
+        </Spinner>
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_alignStart="@+id/editText1"
-        android:layout_below="@+id/editText1"
-        android:layout_marginTop="19dp"
-        android:ems="10"
-        android:hint="password_0_9"
-        android:inputType="numberPassword" />
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/LinLayout2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2"
-        android:layout_below="@+id/editText2"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="e_mail"
-        android:inputType="textEmailAddress" />
+        android:orientation="horizontal"
+        android:layout_below="@+id/LinLayout1"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="0dp"
+            android:layout_toLeftOf="@+id/editText2"
+            android:textStyle="normal|bold"
+            android:text="Dog Respond To:" />
 
-    <EditText
-        android:id="@+id/editText4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText3"
-        android:layout_alignStart="@+id/editText3"
-        android:layout_below="@+id/editText3"
-        android:layout_marginTop="18dp"
-        android:ems="10"
-        android:hint="date"
-        android:inputType="date" />
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="12dp"
+            android:ems="10"
+            android:hint="(Ex. Freddy)"/>
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/editText5"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/LinLayout3"
+        android:layout_below="@+id/LinLayout2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText4"
-        android:layout_alignStart="@+id/editText4"
-        android:layout_below="@+id/editText4"
-        android:layout_marginTop="18dp"
-        android:ems="10"
-        android:hint="contact_number"
-        android:inputType="phone" />
+        android:orientation="horizontal"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/editText3"
+            android:textStyle="normal|bold"
+            android:text="Distinctive Features: " />
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:textSize="12dp"
+            android:ems="10"
+            android:hint="(Ex. Black mark)"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinLayout4"
+        android:layout_below="@+id/LinLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView"
+            android:layout_alignParentTop="true"
+            android:textStyle="normal|bold"
+            android:text="Temperment Type: "
+            tools:ignore="NotSibling" />
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="12dp"
+            android:ems="10"
+            android:hint="(Ex. Aggressive)"
+            android:inputType="date" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/LinLayout5"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/LinLayout4"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="normal|bold"
+                android:text="Sign of Health Issue: "
+                tools:ignore="NotSibling" />
+
+            <EditText
+                android:id="@+id/editText5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="12dp"
+                android:ems="10"
+                android:hint="Scar on the neck"
+                android:inputType="phone" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/button"
+        android:layout_below="@+id/LinLayout5"
         style="@android:style/Widget.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/editText5"
         android:layout_marginTop="62dp"
         android:text="submit"
         android:textSize="16sp"
         android:textStyle="normal|bold" />
-
 </RelativeLayout>
