@@ -30,18 +30,42 @@
             android:text= "@string/Location"/>
     </LinearLayout>
 
-
+    <LinearLayout
     <Spinner
         android:id="@+id/breedDropDown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/LocationDisplay"
-        android:layout_marginLeft="50dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginStart="140dp"
         android:layout_marginTop="0dp"
         android:ems="10"
-        >
-    </Spinner>
+            >
+        </Spinner>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop=""
+            android:layout_alignStart="@+id/breedDropDown"
+            android:layout_below="@+id/LocationDisplay"
+            android:layout_alignParentStart="true"
+            android:textStyle="normal|bold"
+            android:text="Breed" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="123dp"
+        android:layout_height="39dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="62dp"
+        android:textStyle="normal|bold"
+        android:text="Dog Respond To:" />
 
     <EditText
         android:id="@+id/editText2"
@@ -49,12 +73,11 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/breedDropDown"
         android:layout_alignStart="@+id/breedDropDown"
+        android:textSize="12dp"
         android:layout_below="@+id/breedDropDown"
-        android:textColorHint="@android:color/holo_red_dark"
         android:layout_marginTop="5dp"
         android:ems="10"
-        android:hint="Dog Respond to"
-        android:inputType="numberPassword" />
+        android:hint="(Ex. Freddy) "
 
     <EditText
         android:id="@+id/editText3"
@@ -64,9 +87,9 @@
         android:layout_alignStart="@+id/editText2"
         android:layout_below="@+id/editText2"
         android:layout_marginTop="5dp"
-        android:textColorHint="@android:color/holo_red_dark"
+        android:textSize="12dp"
         android:ems="10"
-        android:hint="Describ distinctive feature"
+        android:hint="(Ex. Black mark)"
         android:inputType="textEmailAddress" />
 
     <EditText
@@ -76,10 +99,10 @@
         android:layout_alignLeft="@+id/editText3"
         android:layout_alignStart="@+id/editText3"
         android:layout_below="@+id/editText3"
-        android:textColorHint="@android:color/holo_red_dark"
         android:layout_marginTop="5dp"
+        android:textSize="12dp"
         android:ems="10"
-        android:hint="Temperment Type"
+        android:hint="(Ex. Aggressive)"
         android:inputType="date" />
 
     <EditText
@@ -90,7 +113,7 @@
         android:layout_alignStart="@+id/editText4"
         android:layout_below="@+id/editText4"
         android:layout_marginTop="5dp"
-        android:textColorHint="@android:color/holo_red_dark"
+        android:textSize="12dp"
         android:ems="10"
         android:hint="Signs of Helath Issue"
         android:inputType="phone" />
@@ -107,5 +130,35 @@
         android:text="submit"
         android:textSize="16sp"
         android:textStyle="normal|bold" />
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="105dp"
+        android:textStyle="normal|bold"
+        android:text="Distinctive Features: " />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:textStyle="normal|bold"
+        android:layout_marginTop="145dp"
+        android:text="Temperment Type: " />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="188dp"
+        android:textStyle="normal|bold"
+        android:text="Sign of Health Issue: " />
 
 </RelativeLayout>
