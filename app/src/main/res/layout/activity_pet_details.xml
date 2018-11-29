@@ -139,22 +139,22 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center">
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="normal|bold"
-                android:text="Sign of Health Issue: "
-                tools:ignore="NotSibling" />
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal|bold"
+            android:text="Sign of Health Issue: "
+            tools:ignore="NotSibling" />
 
-            <EditText
-                android:id="@+id/editText5"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:textSize="12dp"
-                android:ems="10"
-                android:hint="Scar on the neck"
-                android:inputType="phone" />
+        <EditText
+            android:id="@+id/editText5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="12dp"
+            android:ems="10"
+            android:hint="Scar on the neck"
+            android:inputType="phone" />
     </LinearLayout>
 
     <Button
