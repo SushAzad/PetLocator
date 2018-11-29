@@ -33,6 +33,7 @@
 
     <LinearLayout
         android:id="@+id/LinLayout1"
+        android:layout_below="@+id/LocationDisplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -62,21 +63,18 @@
         android:gravity="center">
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="123dp"
-            android:layout_height="39dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="62dp"
+            android:layout_toLeftOf="@+id/editText2"
             android:textStyle="normal|bold"
             android:text="Dog Respond To:" />
 
         <EditText
             android:id="@+id/editText2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:textSize="12dp"
-            android:layout_marginTop="5dp"
             android:ems="10"
             android:hint="(Ex. Freddy)"/>
     </LinearLayout>
@@ -93,18 +91,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="105dp"
+            android:layout_toLeftOf="@+id/editText3"
             android:textStyle="normal|bold"
             android:text="Distinctive Features: " />
         <EditText
             android:id="@+id/editText3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="5dp"
             android:textSize="12dp"
             android:ems="10"
             android:hint="(Ex. Black mark)"
-            android:inputType="textEmailAddress" />
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -121,17 +119,12 @@
             android:layout_alignStart="@+id/textView"
             android:layout_alignParentTop="true"
             android:textStyle="normal|bold"
-            android:layout_marginTop="145dp"
             android:text="Temperment Type: "
             tools:ignore="NotSibling" />
         <EditText
             android:id="@+id/editText4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/editText3"
-            android:layout_alignStart="@+id/editText3"
-            android:layout_below="@+id/editText3"
-            android:layout_marginTop="5dp"
+            android:layout_height="match_parent"
             android:textSize="12dp"
             android:ems="10"
             android:hint="(Ex. Aggressive)"
@@ -150,9 +143,6 @@
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/textView"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="188dp"
                 android:textStyle="normal|bold"
                 android:text="Sign of Health Issue: "
                 tools:ignore="NotSibling" />
@@ -160,11 +150,7 @@
             <EditText
                 android:id="@+id/editText5"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/editText4"
-                android:layout_alignStart="@+id/editText4"
-                android:layout_below="@+id/editText4"
-                android:layout_marginTop="5dp"
+                android:layout_height="match_parent"
                 android:textSize="12dp"
                 android:ems="10"
                 android:hint="Scar on the neck"
@@ -183,5 +169,4 @@
         android:text="submit"
         android:textSize="16sp"
         android:textStyle="normal|bold" />
-
 </RelativeLayout>
