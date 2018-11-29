@@ -11,30 +11,34 @@
         android:scaleType="centerCrop"
         android:layout_gravity="top"
         android:src = "@drawable/dog"/>
-    <Button
-        android:id="@+id/gmaps_button"
-        android:gravity="center"
+    <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="60dp"
+        android:orientation="vertical">
+    <Button style="@style/Widget.AppCompat.Button.Colored"
+        android:id="@+id/gmaps_button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="I lost a pet!"
-        android:layout_marginTop="135dp"
         android:paddingLeft="45dp"
         android:paddingRight="45dp"
-        android:background="#80000000"
-        android:textColor="@android:color/white"
         android:textAllCaps="false"
-        android:textSize="16sp" />/>
-    <Button
-        android:id="@+id/Lost_Pet"
-        android:layout_width="match_parent"
+
+        android:textSize="16sp"/>
+    <Button style="@style/Widget.AppCompat.Button.Colored"
+        android:id="@+id/timeline_gmaps_button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I lost a pet"
+        android:text="My Pet's Sightings"
+        android:layout_centerInParent = "true"
         android:paddingLeft="45dp"
         android:paddingRight="45dp"
-        android:layout_marginTop="50dp"
-        android:background="#80000000"
-        android:textSize="30dp"
-
-        />
+        android:background="@color/colorPrimaryDark"
+        android:layout_below="@id/gmaps_button"
+        android:textAllCaps="false"
+        android:textSize="20sp"/>
+    </LinearLayout>
 
 </RelativeLayout>
