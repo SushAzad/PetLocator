@@ -25,5 +25,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
             Intent intent = new Intent(MainActivity.this, LostPetLocationActivity.class);
             startActivity(intent);
         }
+        if (v.getId() == R.id.timeline_gmaps_button) {
+            Intent intent = new Intent(MainActivity.this, PetTimelineActivity.class);
+            startActivity(intent);
+        }
     }
 }
