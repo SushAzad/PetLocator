@@ -29,11 +29,11 @@
             android:id="@+id/MarkerInfo"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:background="@drawable/back"
-            android:textColor="@color/colorAccent"
+            android:background="@android:color/white"
+            android:textColor="@color/colorPrimary"
             android:textStyle="italic"
-            android:textSize="18dp"
-            android:text="Click a marker for info"
+            android:textSize="19dp"
+            android:text="Click any marker for info"
             android:layout_gravity="bottom|center"/>
     </fragment>
 
