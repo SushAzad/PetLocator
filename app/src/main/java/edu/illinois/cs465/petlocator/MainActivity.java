@@ -11,12 +11,15 @@ import android.widget.Toast;
 public class MainActivity extends Activity implements View.OnClickListener {
 
     private Button gMapsButton;
+    private Button timelineButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         gMapsButton = (Button) findViewById(R.id.gmaps_button);
+        timelineButton = findViewById(R.id.timeline_gmaps_button);
+        timelineButton.setOnClickListener(this);
         gMapsButton.setOnClickListener(this);
     }
 
