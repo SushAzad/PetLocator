@@ -42,7 +42,6 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
             android:textStyle="normal|bold"
             android:text="Breed" />
         <Spinner
@@ -65,7 +64,7 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="0dp"
+            android:gravity="center_vertical"
             android:layout_toLeftOf="@+id/editText2"
             android:textStyle="normal|bold"
             android:text="Dog Respond To:" />
@@ -74,6 +73,8 @@
             android:id="@+id/editText2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginEnd="-26dp"
+            android:gravity="center_vertical"
             android:textSize="12dp"
             android:ems="10"
             android:hint="(Ex. Freddy)"/>
@@ -89,8 +90,10 @@
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="15dp"
             android:layout_alignParentTop="true"
+            android:gravity="center_vertical"
             android:layout_toLeftOf="@+id/editText3"
             android:textStyle="normal|bold"
             android:text="Distinctive Features: " />
@@ -98,8 +101,9 @@
             android:id="@+id/editText3"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
             android:textSize="12dp"
+            android:layout_marginEnd="15dp"
             android:ems="10"
             android:hint="(Ex. Black mark)"
             />
@@ -115,9 +119,10 @@
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignStart="@+id/textView"
             android:layout_alignParentTop="true"
+            android:gravity="center_vertical"
             android:textStyle="normal|bold"
             android:text="Temperment Type: "
             tools:ignore="NotSibling" />
@@ -125,6 +130,8 @@
             android:id="@+id/editText4"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_marginEnd="-10dp"
             android:textSize="12dp"
             android:ems="10"
             android:hint="(Ex. Aggressive)"
@@ -142,7 +149,8 @@
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
             android:textStyle="normal|bold"
             android:text="Sign of Health Issue: "
             tools:ignore="NotSibling" />
@@ -151,7 +159,9 @@
             android:id="@+id/editText5"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:gravity="center_vertical"
             android:textSize="12dp"
+            android:layout_marginEnd="-1dp"
             android:ems="10"
             android:hint="Scar on the neck"
             android:inputType="phone" />
