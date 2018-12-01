@@ -96,9 +96,12 @@ public class LostPetLocationActivity extends FragmentActivity implements OnMapRe
        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
        Criteria criteria = new Criteria();
        Location location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
-       LatLng newDefaultPos = new LatLng(location.getLatitude(), location.getLongitude());
-        lostPetMarker = mMap.addMarker(new MarkerOptions().position(newDefaultPos).title("Lost Pet Marker").draggable(true));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(siebel, 10));
+       if(location!=null){
+            defaultPos = new LatLng(location.getLatitude(), location.getLongitude());
+       }
+
+        lostPetMarker = mMap.addMarker(new MarkerOptions().position(defaultPos).title("Lost Pet Marker").draggable(true));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(defaultPos, 10));
         mMap.animateCamera(CameraUpdateFactory.zoomIn());
         // Zoom out to zoom level 10, animating with a duration of 2 seconds.
         mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
@@ -116,11 +119,21 @@ public class LostPetLocationActivity extends FragmentActivity implements OnMapRe
 
     @Override
     public boolean onMyLocationButtonClick() {
+        if(currLocation==null){
+            LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+            Criteria criteria = new Criteria();
+            Location location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
+            LatLng currLatLng = new LatLng(location.getLatitude(), location.getLongitude());
+            lostPetMarker.setPosition(currLatLng);
+        }
+        else {
+             LatLng currLatLng = new LatLng(currLocation.getLatitude(), currLocation.getLongitude());
+             lostPetMarker.setPosition(currLatLng);
+        }
        // Toast.makeText(this, "Finding your location", Toast.LENGTH_SHORT).show();
         // Return false so that we don't consume the event and the default behavior still occurs
         // (the camera animates to the user's current position).
-        LatLng currLatLng = new LatLng(currLocation.getLatitude(), currLocation.getLongitude());
-        lostPetMarker.setPosition(currLatLng);
+
         return false;
     }
     @Override
