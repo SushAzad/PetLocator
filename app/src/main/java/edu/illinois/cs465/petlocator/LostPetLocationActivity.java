@@ -1,9 +1,12 @@
 package edu.illinois.cs465.petlocator;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Criteria;
 import android.location.Location;
+import android.location.LocationManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
@@ -33,6 +36,8 @@ public class LostPetLocationActivity extends FragmentActivity implements OnMapRe
     private static LatLng toPosition = null;
     private static LatLng finalPos = null;
     private static LatLng defaultPos = null;
+    private static Marker lostPetMarker = null;
+    private static Location currLocation = null;
     private Button pickLocation;
 
     @Override
@@ -68,14 +73,13 @@ public class LostPetLocationActivity extends FragmentActivity implements OnMapRe
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
+        mMap.setOnMyLocationButtonClickListener(this);
+        mMap.setOnMyLocationClickListener(this);
+        mMap.setOnMarkerClickListener(this);
+        mMap.setOnMarkerDragListener(this);
         // Add a marker in uiuc and move the camera
-        LatLng siebel = new LatLng(40.1138069, -88.2270939);
-        defaultPos = siebel;
-        mMap.addMarker(new MarkerOptions().position(siebel).title("Lost Pet Marker").draggable(true));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(siebel, 10));
-        mMap.animateCamera(CameraUpdateFactory.zoomIn());
-        // Zoom out to zoom level 10, animating with a duration of 2 seconds.
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
+
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -87,11 +91,17 @@ public class LostPetLocationActivity extends FragmentActivity implements OnMapRe
         return;
     }
         mMap.setMyLocationEnabled(true);
-        mMap.setOnMyLocationButtonClickListener(this);
-        mMap.setOnMyLocationClickListener(this);
-        mMap.setOnMarkerClickListener(this);
-        mMap.setOnMarkerDragListener(this);
-
+        LatLng siebel = new LatLng(40.1138069, -88.2270939);
+        defaultPos = siebel;
+       LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+       Criteria criteria = new Criteria();
+       Location location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
+       LatLng newDefaultPos = new LatLng(location.getLatitude(), location.getLongitude());
+        lostPetMarker = mMap.addMarker(new MarkerOptions().position(newDefaultPos).title("Lost Pet Marker").draggable(true));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(siebel, 10));
+        mMap.animateCamera(CameraUpdateFactory.zoomIn());
+        // Zoom out to zoom level 10, animating with a duration of 2 seconds.
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
         pickLocation = (Button) findViewById(R.id.PickLocation);
         pickLocation.setOnClickListener(this);
 
@@ -99,14 +109,18 @@ public class LostPetLocationActivity extends FragmentActivity implements OnMapRe
     }
     @Override
     public void onMyLocationClick(@NonNull  Location location) {
+        currLocation = location;
         Toast.makeText(this, "Current location:\n" + location, Toast.LENGTH_LONG).show();
+
     }
 
     @Override
     public boolean onMyLocationButtonClick() {
-        Toast.makeText(this, "Finding your location", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(this, "Finding your location", Toast.LENGTH_SHORT).show();
         // Return false so that we don't consume the event and the default behavior still occurs
         // (the camera animates to the user's current position).
+        LatLng currLatLng = new LatLng(currLocation.getLatitude(), currLocation.getLongitude());
+        lostPetMarker.setPosition(currLatLng);
         return false;
     }
     @Override
