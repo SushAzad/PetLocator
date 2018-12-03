@@ -99,7 +99,9 @@ public class LostPetLocationActivity extends FragmentActivity implements OnMapRe
        if(location!=null){
             defaultPos = new LatLng(location.getLatitude(), location.getLongitude());
        }
-
+       currLocation = new Location("");
+       currLocation.setLatitude(defaultPos.latitude);
+       currLocation.setLongitude(defaultPos.longitude);
         lostPetMarker = mMap.addMarker(new MarkerOptions().position(defaultPos).title("Lost Pet Marker").draggable(true));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(defaultPos, 10));
         mMap.animateCamera(CameraUpdateFactory.zoomIn());
