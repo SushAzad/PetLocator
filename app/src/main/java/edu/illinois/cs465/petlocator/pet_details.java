@@ -13,7 +13,7 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class pet_details extends Activity {
 
-    private static Button button = null;
+    private Button photoUploadButton = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +25,8 @@ public class pet_details extends Activity {
         txt.setText("Pet lost at latitude: "+latitude);
 
 
-        button = (Button) findViewById(R.id.tothePhotoUpload);
-        button.setOnClickListener(new View.OnClickListener() {
+        photoUploadButton = (Button) findViewById(R.id.tothePhotoUpload);
+        photoUploadButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 openUpload();
             }
