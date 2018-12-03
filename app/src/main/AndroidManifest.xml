@@ -39,7 +39,7 @@
             android:name=".LostPetLocationActivity"
             android:label="@string/title_activity_lost_pet_location" />
         <activity android:name=".pet_details" />
-        <activity android:name=".PetTimelineActivity"></activity>
+        <activity android:name=".PetTimelineActivity" />
     </application>
 
 </manifest>
