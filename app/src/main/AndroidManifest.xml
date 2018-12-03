@@ -8,6 +8,8 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -39,7 +41,8 @@
             android:name=".LostPetLocationActivity"
             android:label="@string/title_activity_lost_pet_location" />
         <activity android:name=".pet_details" />
-        <activity android:name=".PetTimelineActivity"></activity>
+        <activity android:name=".PetTimelineActivity" />
+        <activity android:name=".photoActivity"/>
     </application>
 
 </manifest>
