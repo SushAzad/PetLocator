@@ -26,7 +26,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         timelineButton.setOnClickListener(this);
         gMapsButton.setOnClickListener(this);
         sawAPetButton.setOnClickListener(this);
-        sawAPetButton.setOnClickListener(this);
     }
 
 
