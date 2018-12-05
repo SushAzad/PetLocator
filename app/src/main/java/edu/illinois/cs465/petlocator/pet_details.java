@@ -36,9 +36,19 @@ public class pet_details extends Activity {
         Spinner mySpinner = (Spinner) findViewById(R.id.breedDropDown);
 
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(pet_details.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.names));
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.breedNames));
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinner.setAdapter(myAdapter);
+
+
+        Spinner secondSpinner = (Spinner) findViewById(R.id.temperamentDropDown);
+
+        ArrayAdapter<String> secondAdapter = new ArrayAdapter<String>(pet_details.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.temperNames));
+        secondAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        secondSpinner.setAdapter(secondAdapter);
+
+
     }
     public void openUpload(){
         Intent intent = new Intent(this, photoActivity.class);
