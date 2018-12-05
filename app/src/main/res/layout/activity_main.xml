@@ -27,7 +27,7 @@
             android:paddingLeft="45dp"
             android:paddingRight="45dp"
             android:textAllCaps="false"
-            android:textSize="16sp"/>
+            android:textSize="25sp"/>
 
         <Button style="@style/Widget.AppCompat.Button.Colored"
             android:id="@+id/gmaps_button"
@@ -37,10 +37,11 @@
             android:layout_below="@id/sawAPet"
             android:text="I lost a pet!"
             android:paddingLeft="45dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="25dp"
             android:paddingRight="45dp"
             android:textAllCaps="false"
             android:textSize="16sp"/>
+
 
         <Button style="@style/Widget.AppCompat.Button.Colored"
             android:id="@+id/timeline_gmaps_button"
@@ -48,13 +49,16 @@
             android:layout_height="wrap_content"
             android:text="My Pet's Sightings"
             android:layout_centerInParent = "true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:paddingLeft="45dp"
             android:paddingRight="45dp"
             android:background="@color/colorPrimaryDark"
             android:layout_below="@id/gmaps_button"
             android:textAllCaps="false"
             android:textSize="16sp"/>
+
+
+
     </LinearLayout>
 
 </RelativeLayout>
