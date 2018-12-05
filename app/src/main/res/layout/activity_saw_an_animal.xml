@@ -35,7 +35,7 @@
                 android:layout_gravity="top|center"
                 android:background="@drawable/back"
                 android:textColor="@android:color/white"
-                android:text="Where was the pet lost?"
+                android:text="Where did you see the animal?"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:typeface="sans" />
@@ -44,13 +44,13 @@
 
 
     <LinearLayout
-    android:id="@+id/infoField"
-    android:layout_width="match_parent"
-    android:layout_height = "wrap_content"
-    android:layout_weight="1.0"
-    android:orientation="vertical"
-    android:visibility="gone"
-    android:background="@android:color/white">
+        android:id="@+id/infoField"
+        android:layout_width="match_parent"
+        android:layout_height = "wrap_content"
+        android:layout_weight="1.0"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:background="@android:color/white">
         <Button
             android:layout_width="30dp"
             android:layout_height="wrap_content"

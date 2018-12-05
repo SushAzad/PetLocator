@@ -11,6 +11,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private Button gMapsButton;
     private Button timelineButton;
+    private Button sawAPetButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,8 +19,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
         gMapsButton = (Button) findViewById(R.id.gmaps_button);
         timelineButton = findViewById(R.id.timeline_gmaps_button);
+        sawAPetButton = findViewById(R.id.sawAPet);
         timelineButton.setOnClickListener(this);
         gMapsButton.setOnClickListener(this);
+        sawAPetButton.setOnClickListener(this);
+        sawAPetButton.setOnClickListener(this);
     }
 
 
@@ -30,6 +34,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
         if (v.getId() == R.id.timeline_gmaps_button) {
             Intent intent = new Intent(MainActivity.this, PetTimelineActivity.class);
+            startActivity(intent);
+        }
+        if (v.getId() == R.id.sawAPet) {
+            Intent intent = new Intent(MainActivity.this, SawAnAnimalActivity.class);
             startActivity(intent);
         }
     }

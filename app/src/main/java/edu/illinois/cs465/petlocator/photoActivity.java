@@ -42,6 +42,8 @@ public class photoActivity extends AppCompatActivity implements View.OnClickList
                 startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
                 break;
             case R.id.bUploadImage:
+                Intent intent = new Intent(this, ThankYouActivity.class);
+                startActivity(intent);
                 break;
         }
     }

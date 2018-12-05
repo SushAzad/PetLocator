@@ -27,7 +27,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class LostPetLocationActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener,
+public class SawAnAnimalActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener,
         GoogleMap.OnMyLocationClickListener, GoogleMap.OnMarkerClickListener, GoogleMap.OnMarkerDragListener, View.OnClickListener {
 
     private GoogleMap mMap;
@@ -43,7 +43,7 @@ public class LostPetLocationActivity extends FragmentActivity implements OnMapRe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lost_pet_location);
+        setContentView(R.layout.activity_saw_an_animal);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -52,7 +52,7 @@ public class LostPetLocationActivity extends FragmentActivity implements OnMapRe
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.activity_lost_pet_location, container, false);
+        view = inflater.inflate(R.layout.activity_saw_an_animal, container, false);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         if (mapFragment != null) {
@@ -140,10 +140,10 @@ public class LostPetLocationActivity extends FragmentActivity implements OnMapRe
             lostPetMarker.setPosition(currLatLng);
         }
         else {
-             LatLng currLatLng = new LatLng(currLocation.getLatitude(), currLocation.getLongitude());
-             lostPetMarker.setPosition(currLatLng);
+            LatLng currLatLng = new LatLng(currLocation.getLatitude(), currLocation.getLongitude());
+            lostPetMarker.setPosition(currLatLng);
         }
-       // Toast.makeText(this, "Finding your location", Toast.LENGTH_SHORT).show();
+        // Toast.makeText(this, "Finding your location", Toast.LENGTH_SHORT).show();
         // Return false so that we don't consume the event and the default behavior still occurs
         // (the camera animates to the user's current position).
 
@@ -184,16 +184,7 @@ public class LostPetLocationActivity extends FragmentActivity implements OnMapRe
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.PickLocation) {
-            Intent intent = new Intent(LostPetLocationActivity.this, pet_details.class);
-            if(finalPos==null)
-            {
-                intent.putExtra("LostPetLatitude", (float)defaultPos.latitude);
-                intent.putExtra("LostPetLongitude", (float)defaultPos.longitude);
-            }
-            else{
-                intent.putExtra("LostPetLatitude", (float)finalPos.latitude);
-                intent.putExtra("LostPetLongitude", (float)finalPos.longitude);
-            }
+            Intent intent = new Intent(SawAnAnimalActivity.this, IdentifyPetActivity.class);
             startActivity(intent);
         }
     }

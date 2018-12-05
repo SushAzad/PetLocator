@@ -21,8 +21,8 @@ public class pet_details extends Activity {
         setContentView(R.layout.activity_pet_details);
         Float latitude = getIntent().getFloatExtra("LostPetLatitude",0);
         Float longitude = getIntent().getFloatExtra("LostPetLongitude",0);
-        TextView txt = findViewById(R.id.positionDetails);
-        txt.setText("Pet lost at latitude: "+latitude);
+       // TextView txt = findViewById(R.id.positionDetails);
+       // txt.setText("Pet lost at latitude: "+latitude);
 
 
         photoUploadButton = (Button) findViewById(R.id.tothePhotoUpload);
