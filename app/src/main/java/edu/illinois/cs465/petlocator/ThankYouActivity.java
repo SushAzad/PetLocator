@@ -21,6 +21,7 @@ public class ThankYouActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         if(v.getId()==R.id.homeScreen){
             Intent myIntent = new Intent(this, MainActivity.class);
+            myIntent.putExtra("PetRegistered", true);
             startActivity(myIntent);
         }
     }

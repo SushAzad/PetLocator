@@ -134,8 +134,8 @@
             android:layout_marginEnd="-10dp"
             android:textSize="12dp"
             android:ems="10"
-            android:hint="(Ex. Aggressive)"
-            android:inputType="date" />
+            android:hint="@string/temperment_hint"
+            android:inputType="text" />
     </LinearLayout>
 
 
@@ -152,7 +152,7 @@
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:textStyle="normal|bold"
-            android:text="Sign of Health Issue: "
+            android:text="@string/sign_of_health_issue"
             tools:ignore="NotSibling" />
 
         <EditText
@@ -163,8 +163,8 @@
             android:textSize="12dp"
             android:layout_marginEnd="-1dp"
             android:ems="10"
-            android:hint="Scar on the neck"
-            android:inputType="phone" />
+            android:hint="@string/example_sign"
+            android:inputType="text" />
     </LinearLayout>
 
 
