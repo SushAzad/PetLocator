@@ -16,7 +16,7 @@ public class photoActivity extends AppCompatActivity implements View.OnClickList
 
     ImageView imageToUpload;
     Button bUploadImage;
-    EditText uploadImageName;
+    Button finalSubmit;
 
 
     @Override
@@ -27,10 +27,11 @@ public class photoActivity extends AppCompatActivity implements View.OnClickList
         imageToUpload = (ImageView) findViewById(R.id.imageToUpload);
 
         bUploadImage = (Button) findViewById(R.id.bUploadImage);
+        finalSubmit = findViewById(R.id.finalSubmit);
 
-        uploadImageName = (EditText) findViewById(R.id.etUploadName);
 
         imageToUpload.setOnClickListener(this);
+        finalSubmit.setOnClickListener(this);
         bUploadImage.setOnClickListener(this);
     }
 
@@ -42,6 +43,10 @@ public class photoActivity extends AppCompatActivity implements View.OnClickList
                 startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
                 break;
             case R.id.bUploadImage:
+                Intent photoIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(photoIntent, RESULT_LOAD_IMAGE);
+                break;
+            case R.id.finalSubmit:
                 Intent intent = new Intent(this, ThankYouActivity.class);
                 startActivity(intent);
                 break;
