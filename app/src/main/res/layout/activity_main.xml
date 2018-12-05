@@ -27,37 +27,37 @@
             android:paddingLeft="45dp"
             android:paddingRight="45dp"
             android:textAllCaps="false"
-            android:textSize="25sp"/>
-
-        <Button style="@style/Widget.AppCompat.Button.Colored"
-            android:id="@+id/gmaps_button"
+            android:textSize="35sp"/>
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
             android:layout_below="@id/sawAPet"
-            android:text="I lost a pet!"
-            android:paddingLeft="45dp"
-            android:layout_marginTop="25dp"
-            android:paddingRight="45dp"
-            android:textAllCaps="false"
-            android:textSize="16sp"/>
-
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
 
         <Button style="@style/Widget.AppCompat.Button.Colored"
             android:id="@+id/timeline_gmaps_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="My Pet's Sightings"
             android:layout_centerInParent = "true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:paddingLeft="45dp"
             android:paddingRight="45dp"
             android:background="@color/colorPrimaryDark"
-            android:layout_below="@id/gmaps_button"
             android:textAllCaps="false"
-            android:textSize="16sp"/>
+            android:textSize="20sp"/>
 
-
+        <Button style="@style/Widget.AppCompat.Button.Colored"
+            android:id="@+id/gmaps_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:text="I lost a pet!"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="false"
+            android:textSize="20sp"/>
+        </LinearLayout>
 
     </LinearLayout>
 
