@@ -3,7 +3,7 @@
     <string name="title_activity_lost_pet_location">Map</string>
     <string name="Location">Locash</string>
     <string-array name="breedNames">
-        <item>▼Select</item>
+        <item>Select▼</item>
         <item>Yoku</item>
         <item>Golden_Retriever</item>
         <item>Siberian_Hustky</item>
@@ -11,7 +11,7 @@
         <item>Pug</item>
     </string-array>
     <string-array name="temperNames">
-        <item>▼Select</item>
+        <item>Select▼</item>
         <item>shy</item>
         <item>agressive</item>
         <item>hyperactive</item>
