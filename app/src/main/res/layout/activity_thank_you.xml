@@ -12,6 +12,7 @@
         android:layout_gravity="top"
         android:src = "@drawable/dog"/>
     <LinearLayout
+        android:id="@+id/LinLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -36,5 +37,17 @@
             android:textStyle="italic"
             android:gravity="center"/>
     </LinearLayout>
+    <Button
+        android:id="@+id/homeScreen"
+        android:layout_below="@id/LinLayout1"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="62dp"
+        android:text="Home"
+        android:textSize="16sp"
+        android:layout_gravity="center"
+        android:textStyle="normal|bold" />
 
 </RelativeLayout>

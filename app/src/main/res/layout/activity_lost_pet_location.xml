@@ -24,7 +24,7 @@
                 android:layout_gravity="right|bottom"
                 android:background="#80000000"
                 android:textColor="@android:color/white"
-                android:text="Continue"
+                android:text="@string/continueStr"
                 android:padding="20dp"
                 android:layout_marginBottom="20dp"
                 android:layout_marginRight="10dp"/>
@@ -35,7 +35,7 @@
                 android:layout_gravity="top|center"
                 android:background="@drawable/back"
                 android:textColor="@android:color/white"
-                android:text="Where was the pet lost?"
+                android:text="@string/where_was_pet_lost"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:typeface="sans" />
@@ -54,7 +54,7 @@
         <Button
             android:layout_width="30dp"
             android:layout_height="wrap_content"
-            android:text="Mark lost pet"/>
+            android:text="@string/mark_location_of_lost_pet"/>
 
     </LinearLayout>
 </LinearLayout>

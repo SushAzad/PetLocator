@@ -6,7 +6,9 @@
     android:padding="10dp"
     android:layout_height="match_parent"
     tools:context=".photoActivity">
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -20,7 +22,7 @@
             android:src="@drawable/camera"/>
         <Button
             android:id="@+id/bUploadImage"
-            android:text="Upload Image"
+            android:text="@string/upload_image"
             android:background="@drawable/back"
             android:textColor="@android:color/white"
             android:layout_width="match_parent"
@@ -28,7 +30,7 @@
         <Button
             android:layout_width="wrap_content"
             android:id="@+id/finalSubmit"
-            android:text="Submit"
+            android:text="@string/submit"
             android:layout_gravity="right"
             android:background="@drawable/back"
             android:textColor="@android:color/white"
@@ -36,5 +38,6 @@
             android:layout_height="wrap_content" />
 
     </LinearLayout>
+</ScrollView>
 
 </android.support.constraint.ConstraintLayout>

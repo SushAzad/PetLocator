@@ -13,7 +13,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button gMapsButton;
     private Button timelineButton;
     private Button sawAPetButton;
-    private Boolean petRegistered;
+    private Boolean petRegistered = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +22,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         gMapsButton = (Button) findViewById(R.id.gmaps_button);
         timelineButton = findViewById(R.id.timeline_gmaps_button);
         sawAPetButton = findViewById(R.id.sawAPet);
-        petRegistered = false;
         timelineButton.setOnClickListener(this);
         gMapsButton.setOnClickListener(this);
-        sawAPetButton.setOnClickListener(this);
         sawAPetButton.setOnClickListener(this);
     }
 

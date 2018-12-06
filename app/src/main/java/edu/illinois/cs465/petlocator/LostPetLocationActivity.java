@@ -116,6 +116,8 @@ public class LostPetLocationActivity extends FragmentActivity implements OnMapRe
     @Override
     public void onMyLocationClick(@NonNull Location location) {
         currLocation = location;
+        LatLng currLatLng = new LatLng(currLocation.getLatitude(), currLocation.getLongitude());
+        lostPetMarker.setPosition(currLatLng);
         Toast.makeText(this, "Current location:\n" + location, Toast.LENGTH_LONG).show();
 
     }
@@ -166,10 +168,11 @@ public class LostPetLocationActivity extends FragmentActivity implements OnMapRe
     @Override
     public void onMarkerDragEnd(Marker marker) {
         toPosition = marker.getPosition();
+      /*
         Toast.makeText(
                 getApplicationContext(),
                 "Marker " + marker.getTitle() + " dragged from " + fromPosition
-                        + " to " + toPosition, Toast.LENGTH_LONG).show();
+                        + " to " + toPosition, Toast.LENGTH_LONG).show();*/
         finalPos = toPosition;
 
     }
