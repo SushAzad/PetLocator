@@ -2,12 +2,22 @@
     <string name="app_name">PetLocator</string>
     <string name="title_activity_lost_pet_location">Map</string>
     <string name="Location">Locash</string>
-    <string-array name="names">
+    <string-array name="breedNames">
+        <item>Select▼</item>
+        <item>Yoku</item>
         <item>German Shepherd</item>
         <item>Golden Retriever</item>
         <item>Siberian Husky</item>
         <item>Chihuahua</item>
         <item>Pug</item>
+    </string-array>
+    <string-array name="temperNames">
+        <item>Select▼</item>
+        <item>shy</item>
+        <item>agressive</item>
+        <item>hyperactive</item>
+        <item>submissive</item>
+        <item>sharp</item>
     </string-array>
     <string name="lastSighted">Your pet was last sighted at Grainger West at 6pm! </string>
     <string name="identify_the_animal">Identify the animal!</string>
