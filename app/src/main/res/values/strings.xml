@@ -13,22 +13,22 @@
     </string-array>
     <string-array name="temperNames">
         <item>Select▼</item>
-        <item>shy</item>
-        <item>agressive</item>
-        <item>hyperactive</item>
-        <item>submissive</item>
-        <item>sharp</item>
+        <item>Shy</item>
+        <item>Aggressive</item>
+        <item>Hyper</item>
+        <item>Playful</item>
+        <item>Submissive</item>
     </string-array>
     <string name="lastSighted">Your pet was last sighted at Grainger West at 6pm! </string>
-    <string name="identify_the_animal">Identify the animal!</string>
+    <string name="identify_the_animal">Identify The Animal!</string>
     <string name="upload_image">Upload Image</string>
     <string name="submit">Submit</string>
     <string name="continueStr">Continue</string>
     <string name="where_was_pet_lost">Where was the pet lost?</string>
     <string name="mark_lost_pet">Mark lost pet</string>
-    <string name="i_saw_an_animal">I saw an animal!</string>
+    <string name="i_saw_an_animal">I Saw An Animal!</string>
     <string name="my_pet_s_sightings">My Pet\'s Sightings</string>
-    <string name="i_lost_a_pet">I lost a pet!</string>
+    <string name="i_lost_a_pet">I Lost A Pet!</string>
     <string name="sign_of_health_issue">Sign of Health Issue:</string>
     <string name="temperment_hint">(Ex. Aggressive)</string>
     <string name="example_sign">Scar on the neck</string>

@@ -166,10 +166,10 @@ public class SawAnAnimalActivity extends FragmentActivity implements OnMapReadyC
     @Override
     public void onMarkerDragEnd(Marker marker) {
         toPosition = marker.getPosition();
-        Toast.makeText(
+      /*  Toast.makeText(
                 getApplicationContext(),
                 "Marker " + marker.getTitle() + " dragged from " + fromPosition
-                        + " to " + toPosition, Toast.LENGTH_LONG).show();
+                        + " to " + toPosition, Toast.LENGTH_LONG).show();*/
         finalPos = toPosition;
 
     }

@@ -83,12 +83,12 @@ public class PetTimelineActivity extends FragmentActivity implements OnMapReadyC
 
         final LatLng GraingerEast = new LatLng(40.112390215667745, -88.22577774524689);
         Marker GraingerE = mMap.addMarker(new MarkerOptions()
-                .position(GraingerEast).title("Grainger Engineering Library: 2pm")
+                .position(GraingerEast).title("Grainger East: 2pm")
                 .alpha(0.7f));
 
-        final LatLng TalbotEast = new LatLng(40.11196354280209, -88.22780549526213);
-        Marker TalbotE = mMap.addMarker(new MarkerOptions()
-                .position(TalbotEast).title("Talbot Laboratory: 10am")
+        final LatLng DCL = new LatLng(40.113440475933125, -88.22579383850098);
+        Marker DCLMar = mMap.addMarker(new MarkerOptions()
+                .position(DCL).title("DCL Building: 10am")
                 .alpha(0.6f));
 
         final LatLng IlliniUnion = new LatLng(40.10939235, -88.22721870933967);

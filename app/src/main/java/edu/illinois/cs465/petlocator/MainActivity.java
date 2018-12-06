@@ -13,7 +13,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button gMapsButton;
     private Button timelineButton;
     private Button sawAPetButton;
-    private Boolean petRegistered = false;
+    private static Boolean petRegistered = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
