@@ -35,28 +35,31 @@
         android:id="@+id/LinLayout1"
         android:layout_below="@+id/LocationDisplay"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginTop="25dp"
         android:orientation="horizontal"
         android:gravity="center">
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:gravity="center_vertical"
             android:textStyle="normal|bold"
-            android:text="Breed" />
+            android:layout_marginStart="98dp"
+            android:text="Breed Type: " />
         <Spinner
             android:id="@+id/breedDropDown"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:ems="10">
         </Spinner>
-
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/LinLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:layout_below="@+id/LinLayout1"
         android:gravity="center">
@@ -65,16 +68,16 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:layout_toLeftOf="@+id/editText2"
             android:textStyle="normal|bold"
+            android:layout_marginStart="20dp"
             android:text="Dog Respond To:" />
 
         <EditText
             android:id="@+id/editText2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginEnd="-26dp"
             android:gravity="center_vertical"
+            android:layout_marginStart="7dp"
             android:textSize="12dp"
             android:ems="10"
             android:hint="(Ex. Freddy)"/>
@@ -85,6 +88,7 @@
         android:layout_below="@+id/LinLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:gravity="center">
         <TextView
@@ -92,9 +96,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginStart="15dp"
-            android:layout_alignParentTop="true"
             android:gravity="center_vertical"
-            android:layout_toLeftOf="@+id/editText3"
             android:textStyle="normal|bold"
             android:text="Distinctive Features: " />
         <EditText
@@ -115,23 +117,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="10dp"
         android:gravity="center">
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignStart="@+id/textView"
-            android:layout_alignParentTop="true"
-            android:gravity="center_vertical"
+            android:layout_height="35dp"
+            android:gravity="center_horizontal"
             android:textStyle="normal|bold"
-            android:text="Temperment Type: "
+            android:text="Temperment Type:"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="5dp"
             tools:ignore="NotSibling" />
+
         <Spinner
             android:id="@+id/temperamentDropDown"
-            android:layout_width="wrap_content"
+            android:layout_width="145dp"
             android:layout_height="match_parent"
-            android:ems="10">
-        </Spinner>
+            android:layout_marginBottom="3dp"
+            android:ems="10"></Spinner>
     </LinearLayout>
 
 
@@ -141,6 +145,7 @@
         android:layout_below="@+id/LinLayout4"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="5dp"
         android:gravity="center">
         <TextView
             android:id="@+id/textView5"
@@ -159,7 +164,7 @@
             android:textSize="12dp"
             android:layout_marginEnd="-1dp"
             android:ems="10"
-            android:hint="Scar on the neck"
+            android:hint="(Ex. Scar on the neck)"
             android:inputType="phone" />
     </LinearLayout>
 
